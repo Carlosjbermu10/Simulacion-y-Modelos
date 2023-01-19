@@ -44,5 +44,5 @@ def descriptiva_datos(file):
         print(f"El rango es: {rango}")
 
 if __name__ == "__main__":
-    file = 'datos.csv'
+    file = 'datos1.csv'
     descriptiva_datos(file)
