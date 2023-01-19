@@ -12,7 +12,7 @@ def simulacion_datos(file):
     with open(file, 'r') as f:
         
         lista = []  
-        alturas = []
+        dato = []
         lector = csv.reader(f)
         # omite el encabezado
 
@@ -20,12 +20,12 @@ def simulacion_datos(file):
             lista.append(list(map(float, fila)))
 
         for x in lista:
-            alturas += x
+            dato += x
 
         #print(f"Numero de Datos: {len(alturas)}")
-        num_datos = len(alturas)
+        num_datos = len(dato)
 
-        cou = Counter(alturas)
+        cou = Counter(dato)
 
         print()
         print("------------------------------------------------------------------------------------------------------------------------")
@@ -119,16 +119,22 @@ def simulacion_datos(file):
         print()
 
         print("------------------------------------------------------------------------------------------------------------------------")
+        
+        #buscar el numero mas alto de la lista
+        max=0
+        for x in dato:
+            if x > max:
+                max = x
 
         #Graficas en Matplolib
-
-        plt.hist(alturas, edgecolor='black')
+        bins = int(max)
+        plt.hist(dato, bins,edgecolor='black')
         plt.xlabel('Datos')
         plt.ylabel('Veces que se repite')
         plt.title('Histograma de frecuencia')
         plt.show()
 
-        #<> 
+        #<> S
         print()
 
 if __name__ == "__main__":
